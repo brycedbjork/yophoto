@@ -1,6 +1,20 @@
 import React, { useState, useRef, useCallback } from "react";
 import styled from "styled-components";
 import Webcam from "react-webcam";
+import gpio from "rpi-gpio";
+
+const gpiop = gpio.promise;
+
+const Wrapper = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(180deg);
+`;
 
 const CountDown = styled.div`
   display: flex;
@@ -130,6 +144,15 @@ const App: React.FC = () => {
     }, 1000);
   };
 
+  // run on change of gpio pin 11
+  gpio.setup(11, gpiop.DIR_IN, () => {
+    gpio.change(11, value => {
+      if (!active) {
+        run();
+      }
+    });
+  });
+
   let imageData = null;
   switch (show) {
     case "before0":
@@ -147,7 +170,7 @@ const App: React.FC = () => {
   }
 
   return (
-    <React.Fragment>
+    <Wrapper>
       <HiddenCam>
         <Webcam
           audio={false}
@@ -173,7 +196,7 @@ const App: React.FC = () => {
       )}
       {imageData && <Image src={imageData as string} />}
       {flash && <Flash />}
-    </React.Fragment>
+    </Wrapper>
   );
 };
 
