@@ -10,6 +10,8 @@ GPIO.setmode(GPIO.BOARD)
 
 GPIO.setup(7, GPIO.IN)
 
+GPIO.add_event_detect(7, GPIO.BOTH, bouncetime=1000)
+
 while True:
 
   if GPIO.event_detected(7) and not activated:
@@ -18,5 +20,3 @@ while True:
   elif activated:
     activated = 0
     print("not activated")
-
-  sleep(1)
