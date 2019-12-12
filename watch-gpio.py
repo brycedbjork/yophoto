@@ -7,7 +7,7 @@ GPIO.setmode(GPIO.BOARD)
 
 GPIO.setup(7, GPIO.IN)
 
-GPIO.add_event_detect(7, GPIO.FALLING, bouncetime=1000)
+GPIO.add_event_detect(7, GPIO.BOTH, bouncetime=1000)
 
 while True:
   if GPIO.event_detected(7):
