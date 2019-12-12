@@ -3,6 +3,12 @@ import styled from "styled-components";
 import Webcam from "react-webcam";
 import gpio from "rpi-gpio";
 
+gpio.on("change", (channel: any, value: any) => {
+  console.log(channel, value);
+});
+gpio.setup(7, gpio.DIR_IN, gpio.EDGE_BOTH);
+gpio.setup(11, gpio.DIR_IN, gpio.EDGE_BOTH);
+
 const Wrapper = styled.div`
   position: absolute;
   top: 0;
@@ -141,17 +147,6 @@ const App: React.FC = () => {
       }, 1000);
     }, 1000);
   };
-
-  // run on change of gpio pin 11
-  gpio.on("change", (channel: any, value: any) => {
-    console.log(channel, value);
-  });
-  gpio.setup(7, gpio.DIR_IN, () => {
-    gpio.read(7, (err, value) => {
-      console.log(value);
-    });
-  });
-  gpio.setup(11, gpio.DIR_IN, gpio.EDGE_BOTH);
 
   let imageData = null;
   switch (show) {
