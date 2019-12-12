@@ -21,4 +21,4 @@ while True:
     activated = 0
     print("not activated")
 
-  sleep(1000)
+  sleep(1)
