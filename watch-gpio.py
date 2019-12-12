@@ -11,5 +11,6 @@ GPIO.add_event_detect(7, GPIO.FALLING, bouncetime=1000)
 
 while True:
   if GPIO.event_detected(7):
-    if not GPIO.input(7):
+    print(GPIO.input(7))
+    if GPIO.input(7):
       print("event detected")
