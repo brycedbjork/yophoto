@@ -67,7 +67,7 @@ const App: React.FC = () => {
   const [countdown, setCountdown] = useState(0);
 
   // variable used to conserve memory
-  const [backnforth, setBacknforth] = useState(0);
+  // const [backnforth, setBacknforth] = useState(0);
 
   // variable dictating whether an image should be shown and what image that should be
   const [show, setShow] = useState(null as null | string);
@@ -103,7 +103,7 @@ const App: React.FC = () => {
     [webcamRef]
   );
 
-  const run = () => {
+  const run = (backnforth: number) => {
     setActive(true);
     if (countdown != 0) return;
 
@@ -132,7 +132,7 @@ const App: React.FC = () => {
                 setCountdown(0);
                 setActive(false);
                 // toggle back and forth state variable (used to show previous images without running out of memory)
-                setBacknforth(backnforth ? 0 : 1);
+                // setBacknforth(backnforth ? 0 : 1);
               }, 2000);
             }, 2000);
           }, 100);
@@ -141,9 +141,12 @@ const App: React.FC = () => {
     }, 1000);
   };
 
+  let i = 0;
+
   const activate = () => {
+    i = i ? 0 : 1;
     setTimeout(() => {
-      run();
+      run(i);
       activate();
     }, 30000);
   };
@@ -184,7 +187,15 @@ const App: React.FC = () => {
       </HiddenCam>
 
       {countdown > 0 && <CountDown>{countdown}</CountDown>}
-      {!active && <CountDown>Say Cheese</CountDown>}
+      {!active && (
+        <CountDown
+        // onClick={() => {
+        //   if (!active) run();
+        // }}
+        >
+          Say Cheese
+        </CountDown>
+      )}
       {imageData && <Image src={imageData as string} />}
       {flash && <Flash />}
     </Wrapper>
