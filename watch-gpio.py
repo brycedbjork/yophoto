@@ -4,8 +4,8 @@ GPIO.setmode(GPIO.BOARD)
 
 GPIO.setup(7, GPIO.IN)
 
-GPIO.add_event_detect(7, GPIO.RISING) 
+def my_callback():
+  print("press")
 
 while True:
-  if GPIO.event_detected(7):
-    print("event detected")
+  GPIO.add_event_callback(7, my_callback, bouncetime=200)
