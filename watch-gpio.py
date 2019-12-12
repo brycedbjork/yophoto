@@ -17,6 +17,6 @@ while True:
   if GPIO.event_detected(7) and not activated:
     activated = 1
     print("activated")
-  elif activated:
+  elif not GPIO.event_detected(7) and activated:
     activated = 0
     print("not activated")
