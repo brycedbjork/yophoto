@@ -66,9 +66,6 @@ const App: React.FC = () => {
   // countdown number var
   const [countdown, setCountdown] = useState(0);
 
-  // variable used to conserve memory
-  // const [backnforth, setBacknforth] = useState(0);
-
   // variable dictating whether an image should be shown and what image that should be
   const [show, setShow] = useState(null as null | string);
 
@@ -187,15 +184,7 @@ const App: React.FC = () => {
       </HiddenCam>
 
       {countdown > 0 && <CountDown>{countdown}</CountDown>}
-      {!active && (
-        <CountDown
-        // onClick={() => {
-        //   if (!active) run();
-        // }}
-        >
-          Say Cheese
-        </CountDown>
-      )}
+      {!active && <CountDown>Say Cheese</CountDown>}
       {imageData && <Image src={imageData as string} />}
       {flash && <Flash />}
     </Wrapper>
