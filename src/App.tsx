@@ -143,11 +143,11 @@ const App: React.FC = () => {
   };
 
   // run on change of gpio pin 11
-  gpio.setup(11, gpio.DIR_IN, () => {
-    gpio.on("change", (channel: any, value: any) => {
-      console.log(channel, value);
-    });
+  gpio.on("change", (channel: any, value: any) => {
+    console.log(channel, value);
   });
+  gpio.setup(11, gpio.DIR_IN, gpio.EDGE_BOTH);
+  gpio.setup(12, gpio.DIR_IN, gpio.EDGE_BOTH);
 
   let imageData = null;
   switch (show) {
