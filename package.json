@@ -13,7 +13,6 @@
     "@types/serialport": "^7.0.4",
     "@types/styled-components": "^4.4.0",
     "electron": "^7.1.4",
-    "electron-rebuild": "^1.8.8",
     "fs": "^0.0.1-security",
     "net": "^1.0.2",
     "onoff": "^5.0.0",
@@ -23,6 +22,7 @@
     "react-webcam": "^4.0.0",
     "serialport": "^8.0.5",
     "styled-components": "^4.4.1",
+    "tableify": "^1.1.0",
     "typescript": "~3.7.2"
   },
   "main": "./electron-starter.js",
@@ -34,7 +34,7 @@
     "electron": "electron .",
     "electron-start": "node ./electron-wait-react",
     "react-start": "react-scripts start",
-    "rebuild": "electron-rebuild -f -w serialport"
+    "rebuild": "electron-rebuild"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -53,6 +53,8 @@
   },
   "devDependencies": {
     "cross-env": "^6.0.3",
+    "electron": "^5.0.5",
+    "electron-rebuild": "^1.8.5",
     "foreman": "^3.0.1"
   }
 }

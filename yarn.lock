@@ -3828,7 +3828,7 @@ ee-first@1.1.1:
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
-electron-rebuild@^1.8.8:
+electron-rebuild@^1.8.5:
   version "1.8.8"
   resolved "https://registry.yarnpkg.com/electron-rebuild/-/electron-rebuild-1.8.8.tgz#412c1b846e944de6ff022aab3f5afd0f5e637f35"
   integrity sha512-9a/VGbVpTJcuBaZa8yMcegqJ5flGPYDo363AxXDMxY4ZHPtFMLedGzQW9+720SIS1cvjX8B0zC+vMHO75ncOiA==
@@ -10380,6 +10380,13 @@ table@^5.2.3:
     lodash "^4.17.14"
     slice-ansi "^2.1.0"
     string-width "^3.0.0"
+
+tableify@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/tableify/-/tableify-1.1.0.tgz#5ff11123409abc281d40ecdbd41489d3f3085936"
+  integrity sha1-X/ERI0CavCgdQOzb1BSJ0/MIWTY=
+  dependencies:
+    optimist "^0.6.1"
 
 tapable@^1.0.0, tapable@^1.1.0, tapable@^1.1.3:
   version "1.1.3"
