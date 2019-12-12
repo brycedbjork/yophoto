@@ -19,5 +19,4 @@ while True:
     print("activated")
   else:
     activated = 0
-
-  sleep(1000)
+    print("not activated")
