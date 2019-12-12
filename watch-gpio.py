@@ -12,6 +12,8 @@ GPIO.setup(7, GPIO.IN)
 
 while True:
 
+  print(GPIO.input(7))
+
   if GPIO.input(7) and not activated:
     activated = 1
     print("activated")
