@@ -146,8 +146,12 @@ const App: React.FC = () => {
   gpio.on("change", (channel: any, value: any) => {
     console.log(channel, value);
   });
+  gpio.setup(7, gpio.DIR_IN, () => {
+    gpio.read(7, (err, value) => {
+      console.log(value);
+    });
+  });
   gpio.setup(11, gpio.DIR_IN, gpio.EDGE_BOTH);
-  gpio.setup(12, gpio.DIR_IN, gpio.EDGE_BOTH);
 
   let imageData = null;
   switch (show) {
