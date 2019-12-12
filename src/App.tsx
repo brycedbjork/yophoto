@@ -1,9 +1,6 @@
 import React, { useState, useRef, useCallback } from "react";
 import styled from "styled-components";
 import Webcam from "react-webcam";
-import onoff from "onoff";
-
-const Gpio = onoff.Gpio;
 
 const Wrapper = styled.div`
   position: absolute;
@@ -143,10 +140,6 @@ const App: React.FC = () => {
       }, 1000);
     }, 1000);
   };
-
-  const button = new Gpio(7, "in");
-  console.log(button);
-  button.watch((value: any) => console.log(value));
 
   let imageData = null;
   switch (show) {
