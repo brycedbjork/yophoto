@@ -3,8 +3,6 @@ import styled from "styled-components";
 import Webcam from "react-webcam";
 import gpio from "rpi-gpio";
 
-const gpiop = gpio.promise;
-
 const Wrapper = styled.div`
   position: absolute;
   top: 0;
@@ -145,11 +143,9 @@ const App: React.FC = () => {
   };
 
   // run on change of gpio pin 11
-  gpio.setup(11, gpiop.DIR_IN, () => {
-    gpio.change(11, value => {
-      if (!active) {
-        run();
-      }
+  gpio.setup(11, gpio.DIR_IN, () => {
+    gpio.on("change", (channel: any, value: any) => {
+      console.log(channel, value);
     });
   });
 
@@ -185,15 +181,7 @@ const App: React.FC = () => {
       </HiddenCam>
 
       {countdown > 0 && <CountDown>{countdown}</CountDown>}
-      {!active && (
-        <CountDown
-          onClick={() => {
-            if (!active) run();
-          }}
-        >
-          Say Cheese
-        </CountDown>
-      )}
+      {!active && <CountDown>Say Cheese</CountDown>}
       {imageData && <Image src={imageData as string} />}
       {flash && <Flash />}
     </Wrapper>

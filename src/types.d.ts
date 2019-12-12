@@ -3,6 +3,6 @@ declare module "rpi-gpio" {
     setup: (pin: number, mode: string, callback: () => void) => {},
     DIR_OUT: string,
     DIR_IN: string,
-    change: (pin: number, onChange: (value: any) => void) => {}
+    on: any
   };
 }
