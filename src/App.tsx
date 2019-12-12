@@ -173,15 +173,7 @@ const App: React.FC = () => {
       </HiddenCam>
 
       {countdown > 0 && <CountDown>{countdown}</CountDown>}
-      {!active && (
-        <CountDown
-          onClick={() => {
-            if (!active) run();
-          }}
-        >
-          Say Cheese
-        </CountDown>
-      )}
+      {!active && <CountDown>Say Cheese</CountDown>}
       {imageData && <Image src={imageData as string} />}
       {flash && <Flash />}
     </Wrapper>
