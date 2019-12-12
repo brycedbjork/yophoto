@@ -1,6 +1,18 @@
 import React, { useState, useRef, useCallback } from "react";
 import styled from "styled-components";
 import Webcam from "react-webcam";
+import net from "net";
+
+const client = new net.Socket();
+
+client.connect(10000, "127.0.0.1", function() {
+  console.log("Connected");
+  client.write("Hello, server! Love, Client.");
+});
+
+client.on("close", function() {
+  console.log("Connection closed");
+});
 
 const Wrapper = styled.div`
   position: absolute;
@@ -140,6 +152,10 @@ const App: React.FC = () => {
       }, 1000);
     }, 1000);
   };
+
+  client.on("data", function(data) {
+    console.log("Received: " + data);
+  });
 
   let imageData = null;
   switch (show) {
