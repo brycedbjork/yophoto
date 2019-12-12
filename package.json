@@ -29,7 +29,8 @@
     "eject": "react-scripts eject",
     "electron": "electron .",
     "electron-start": "node ./electron-wait-react",
-    "react-start": "react-scripts start"
+    "react-start": "react-scripts start",
+    "postinstall": "./node_modules/.bin/electron-rebuild"
   },
   "eslintConfig": {
     "extends": "react-app"
