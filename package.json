@@ -20,7 +20,6 @@
     "react-dom": "^16.12.0",
     "react-scripts": "3.3.0",
     "react-webcam": "^4.0.0",
-    "serialport": "^8.0.5",
     "styled-components": "^4.4.1",
     "tableify": "^1.1.0",
     "typescript": "~3.7.2"
@@ -53,7 +52,6 @@
   },
   "devDependencies": {
     "cross-env": "^6.0.3",
-    "electron": "^5.0.5",
     "electron-rebuild": "^1.8.5",
     "foreman": "^3.0.1"
   }
