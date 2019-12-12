@@ -9,7 +9,10 @@ let mainWindow;
 
 function createWindow() {
   // Create the browser window.
-  mainWindow = new BrowserWindow({ width: 1280, height: 760 });
+  mainWindow = new BrowserWindow({
+    width: 1280,
+    height: 760
+  });
 
   // and load the index.html of the app.
   const startUrl =
@@ -30,6 +33,20 @@ function createWindow() {
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
     mainWindow = null;
+  });
+
+  /* Instance socket on create window */
+  console.log("Try to connect");
+  socketClient = net.connect({ host: "localhost", port: 10000 }, () => {
+    // 'connect' listener
+    console.log("connected to server!");
+  });
+
+  socketClient.on("data", data => {
+    console.log(data);
+  });
+  socketClient.on("end", () => {
+    console.log("disconnected from server");
   });
 }
 
