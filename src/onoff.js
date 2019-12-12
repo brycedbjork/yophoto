@@ -2,6 +2,8 @@
 
 import fs from "fs";
 
+console.log(fs.existsSync);
+
 const debounce = require("lodash.debounce");
 const Epoll = require("epoll").Epoll;
 
