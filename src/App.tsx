@@ -1,18 +1,10 @@
 import React, { useState, useRef, useCallback } from "react";
 import styled from "styled-components";
 import Webcam from "react-webcam";
-import net from "net";
 
-const client = new net.Socket();
+const SerialPort = require("serialport");
 
-client.connect(10000, "127.0.0.1", function() {
-  console.log("Connected");
-  client.write("Hello, server! Love, Client.");
-});
-
-client.on("close", function() {
-  console.log("Connection closed");
-});
+const port = new SerialPort("/dev/cu.SLAB_USBtoUART", { baudRate: 115200 });
 
 const Wrapper = styled.div`
   position: absolute;
@@ -153,9 +145,7 @@ const App: React.FC = () => {
     }, 1000);
   };
 
-  client.on("data", function(data) {
-    console.log("Received: " + data);
-  });
+  port.on("data", (line: any) => console.log(`> ${line}`));
 
   let imageData = null;
   switch (show) {
