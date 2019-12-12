@@ -20,7 +20,7 @@ const CountDown = styled.div`
   background-color: black;
   width: 100%;
   height: 100%;
-  font-size: 48px;
+  font-size: 100px;
   color: white;
   font-weight: 600;
 `;
