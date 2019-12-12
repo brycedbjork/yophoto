@@ -2,9 +2,9 @@ import React, { useState, useRef, useCallback } from "react";
 import styled from "styled-components";
 import Webcam from "react-webcam";
 
-const SerialPort = require("serialport");
+// const SerialPort = require("serialport");
 
-const port = new SerialPort("/dev/ttyUSB0", { baudRate: 115200 });
+// const port = new SerialPort("/dev/ttyUSB0", { baudRate: 115200 });
 
 const Wrapper = styled.div`
   position: absolute;
@@ -147,15 +147,15 @@ const App: React.FC = () => {
     }, 1000);
   };
 
-  port.on("data", (line: any) => {
-    if (line[0] == "0" && serial === 1) {
-      serial = 1;
-      run();
-    } else if (line[0] == "1" && serial === 0) {
-      serial = 0;
-      run();
-    }
-  });
+  // port.on("data", (line: any) => {
+  //   if (line[0] == "0" && serial === 1) {
+  //     serial = 1;
+  //     run();
+  //   } else if (line[0] == "1" && serial === 0) {
+  //     serial = 0;
+  //     run();
+  //   }
+  // });
 
   let imageData = null;
   switch (show) {
