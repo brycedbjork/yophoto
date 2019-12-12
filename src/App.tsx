@@ -2,7 +2,7 @@ import React, { useState, useRef, useCallback } from "react";
 import styled from "styled-components";
 import Webcam from "react-webcam";
 
-var Gpio = require("onoff").Gpio;
+import Gpio from "./onoff";
 
 const Wrapper = styled.div`
   position: absolute;
